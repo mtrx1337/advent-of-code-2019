@@ -4,4 +4,4 @@ SOL_PATH=$1
 
 cd $SOL_PATH
 cargo build
-cat input.txt | cargo run
+time cat input.txt | cargo run
