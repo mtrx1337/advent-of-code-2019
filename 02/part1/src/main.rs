@@ -2,15 +2,6 @@ use std::string::String;
 use std::process::exit;
 use std::io::{self, Read};
 
-fn is_digits(this: &str) -> bool {
-    for x in this.chars() {
-        if ! x.is_digit(10) {
-            return false;
-        }
-    }
-    return true;
-}
-
 fn main() {
     let mut buffer = String::new();
     io::stdin()
@@ -19,8 +10,8 @@ fn main() {
         .unwrap();
 
     let mut splits : Vec<u32> = buffer
+        .trim()
         .split(',')
-        .filter(|x| is_digits(x))
         .map(|x| x
             .parse::<u32>()
             .unwrap())
